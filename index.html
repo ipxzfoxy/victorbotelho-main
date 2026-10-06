@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Victor Botelho Anunciação</title>
+
+  <meta
+    name="description"
+    content="Site pessoal de Victor Botelho Anunciação, desenvolvedor de software."
+  />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #1267e8;
+      --blue-dark: #0b4eb8;
+      --blue-light: #eaf3ff;
+
+      --text: #101828;
+      --muted: #667085;
+      --border: #e4e7ec;
+
+      --background: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+
+      padding: 110px 0 80px;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      border-radius: 50%;
+
+      background: #dbeaff;
+
+      filter: blur(110px);
+
+      top: -260px;
+      right: -160px;
+
+      z-index: -1;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+
+      font-weight: 500;
+      font-size: 14px;
+
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 88px);
+
+      line-height: 1;
+
+      letter-spacing: -0.05em;
+
+      max-width: 900px;
+
+      font-weight: 500;
+    }
+
+    h1 span {
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    .hero-text {
+      max-width: 650px;
+
+      margin-top: 32px;
+
+      color: var(--muted);
+
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+
+    .main-links {
+      display: flex;
+
+      gap: 12px;
+
+      margin-top: 40px;
+
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 16px 40px;
+
+      border-radius: 10px;
+
+      font-size: 20px;
+      font-weight: 500;
+
+      border: 1px solid var(--border);
+
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .button svg {
+      width: 16px;
+      height: 16px;
+
+      stroke-width: 2;
+    }
+
+    .button.primary {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+    }
+
+    .button.primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background: white;
+    }
+
+    .button.secondary:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+
+      transform: translateY(-2px);
+    }
+
+    /* REDES SOCIAIS */
+
+    .social-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+
+      padding: 35px 0;
+    }
+
+    .social-wrapper {
+      display: flex;
+      align-items: center;
+
+      gap: 35px;
+
+      flex-wrap: wrap;
+    }
+
+    .social-label {
+      font-size: 13px;
+      color: var(--muted);
+
+      margin-right: 5px;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+
+      gap: 28px;
+
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--blue);
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-4px);
+
+      opacity: 0.75;
+    }
+
+    .social-icons img,
+    .social-icons svg {
+      width: 44px;
+      height: 44px;
+
+      object-fit: contain;
+    }
+
+    /*
+      Para imagens que não aceitam cor
+      diretamente pela URL.
+    */
+    .blue-filter {
+      filter:
+        brightness(0)
+        saturate(100%)
+        invert(35%)
+        sepia(97%)
+        saturate(2249%)
+        hue-rotate(206deg)
+        brightness(94%)
+        contrast(94%);
+    }
+
+    /* SOBRE MIM */
+
+    .about {
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(255, 255, 255, 0.12),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #0755c9 0%,
+          #1267e8 50%,
+          #2078f2 100%
+        );
+
+      color: white;
+
+      padding: 120px 0;
+    }
+
+    .section-label {
+      color: rgba(255, 255, 255, 0.68);
+
+      font-size: 13px;
+      font-weight: 600;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.09em;
+
+      margin-bottom: 28px;
+    }
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns: 0.8fr 1.2fr;
+
+      gap: 80px;
+    }
+
+    .about h2 {
+      font-size: clamp(34px, 5vw, 54px);
+
+      letter-spacing: -0.04em;
+
+      line-height: 1.08;
+
+      font-weight: 500;
+
+      color: white;
+    }
+
+    .about-content {
+      color: rgba(255, 255, 255, 0.83);
+
+      font-size: 17px;
+    }
+
+    .about-content p + p {
+      margin-top: 21px;
+    }
+
+    .about-content strong {
+      color: white;
+
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #f7faff;
+
+      border-top: 1px solid #e8eef7;
+
+      padding: 65px 0 35px;
+    }
+
+    .footer-top {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: flex-start;
+
+      gap: 50px;
+
+      margin-bottom: 55px;
+    }
+
+    .footer-name {
+      font-size: 21px;
+
+      font-weight: 500;
+
+      letter-spacing: -0.03em;
+    }
+
+    .footer-name span {
+      color: var(--blue);
+    }
+
+    .footer-socials {
+      display: flex;
+
+      align-items: center;
+
+      gap: 20px;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-social {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      color: var(--blue);
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .footer-social:hover {
+      transform: translateY(-3px);
+
+      opacity: 0.7;
+    }
+
+    .footer-social img,
+    .footer-social svg {
+      width: 28px;
+      height: 28px;
+
+      object-fit: contain;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #e2e9f3;
+
+      padding-top: 25px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      color: #98a2b3;
+
+      font-size: 12px;
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 750px) {
+      .container {
+        width: min(100% - 30px, 1100px);
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding: 100px 0 80px;
+      }
+
+      h1 {
+        font-size: clamp(45px, 15vw, 70px);
+      }
+
+      .social-wrapper {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 20px;
+      }
+
+      .social-icons {
+        gap: 22px;
+      }
+
+      .social-icons img,
+      .social-icons svg {
+        width: 38px;
+        height: 38px;
+      }
+
+      .about {
+        padding: 90px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .footer-top {
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="hero">
+      <div class="container">
+
+        <div class="eyebrow">
+          Desenvolvedor de Software
+        </div>
+
+        <h1>
+          Victor Botelho
+          <br />
+          <span>Anunciação.</span>
+        </h1>
+
+        <p class="hero-text">
+          Desenvolvedor e estudante de software. Com foco em engenharia de software, busco aprender, criar e evoluir todos os dias.
+        </p>
+
+        <div class="main-links">
+
+          <a
+            href="https://portfolio.victorbotelho.com.br"
+            class="button primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Portfólio
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 3h6v6" />
+              <path d="M10 14 21 3" />
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            </svg>
+          </a>
+
+          <a
+            href="https://feed.victorbotelho.com.br"
+            class="button secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Feed
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 3h6v6" />
+              <path d="M10 14 21 3" />
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            </svg>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section class="social-section">
+      <div class="container social-wrapper">
+
+
+        <div class="social-icons">
+
+
+          <a
+            href="https://github.com/ipxzfoxy"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <img
+              src="https://cdn.simpleicons.org/github/1267e8"
+              alt="GitHub"
+              loading="lazy"
+            />
+          </a>
+          <a
+            href="https://beacons.ai/victorbotelho"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Beacons"
+          >
+            <img
+              src="https://cdn.brandfetch.io/id9IJJnIpA/w/800/h/766/theme/light/symbol.png?c=1dxbfHSJFAPEGdCLU4o5B"
+              alt="Beacons"
+              class="blue-filter"
+              loading="lazy"
+            />
+          </a>
+          <a
+            href="https://npmjs.com/~xfoxyyy0"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="npm"
+          >
+            <img
+              src="https://cdn.simpleicons.org/npm/1267e8"
+              alt="npm"
+              loading="lazy"
+            />
+          </a>
+          <a
+            href="https://cursos.alura.com.br/user/ipxzfoxy"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Alura"
+          >
+            <img
+              src="https://www.alura.com.br/assets/img/alura2023/home/selo-a.1750260030.svg"
+              alt="Alura"
+              class="blue-filter"
+              loading="lazy"
+            />
+          </a>
+          <a
+          href="https://www.linkedin.com/in/victorbotelhoa"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <img
+            src="https://api.iconify.design/mdi/linkedin.svg?color=%231267e8"
+            alt="LinkedIn"
+            loading="lazy"
+          />
+        </a>
+          <a
+            href="https://x.com/victorbotelhoan"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X"
+          >
+            <img
+              src="https://cdn.simpleicons.org/x/1267e8"
+              alt="X"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section class="about">
+      <div class="container">
+
+        <div class="section-label">
+          Sobre mim
+        </div>
+
+        <div class="about-grid">
+
+          <h2>
+            Aprendendo,
+            <br />
+            construindo e
+            <br />
+            experimentando.
+          </h2>
+
+          <div class="about-content">
+
+            <p>
+              Meu nome é
+              <strong>Victor Botelho Anunciação</strong>.
+
+              Sou desenvolvedor de software com foco principalmente em
+              <strong>back-end, Node.js, TypeScript e C++</strong>.
+            </p>
+
+            <p>
+              Gosto de entender como as tecnologias funcionam por baixo
+              dos panos e transformar esse conhecimento em projetos próprios.
+
+              Desenvolvo desde APIs e frameworks até ferramentas relacionadas
+              a compiladores, máquinas virtuais e linguagens de programação.
+            </p>
+
+            <p>
+              Projetos como
+              <strong>Disfox</strong>,
+              <strong>ProtoIndigo</strong>
+              e
+              <strong>BreVM</strong>
+              fazem parte dessa busca constante por aprender engenharia
+              de software construindo coisas novas.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-name">
+          Victor Botelho
+          <span>Anunciação.</span>
+        </div>
+
+        <div class="footer-socials">
+
+          <a
+            href="https://github.com/ipxzfoxy"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social"
+            aria-label="GitHub"
+          >
+            <img
+              src="https://cdn.simpleicons.org/github/1267e8"
+              alt="GitHub"
+            />
+          </a>
+
+          <a
+            href="https://beacons.ai/victorbotelho"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social"
+            aria-label="Beacons"
+          >
+            <img
+              src="https://cdn.brandfetch.io/id9IJJnIpA/w/800/h/766/theme/light/symbol.png?c=1dxbfHSJFAPEGdCLU4o5B"
+              alt="Beacons"
+              class="blue-filter"
+            />
+          </a>
+
+          <a
+            href="https://npmjs.com/~xfoxyyy0"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social"
+            aria-label="npm"
+          >
+            <img
+              src="https://cdn.simpleicons.org/npm/1267e8"
+              alt="npm"
+            />
+          </a>
+
+          <a
+            href="https://cursos.alura.com.br/user/ipxzfoxy"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social"
+            aria-label="Alura"
+          >
+            <img
+              src="https://www.alura.com.br/assets/img/alura2023/home/selo-a.1750260030.svg"
+              alt="Alura"
+              class="blue-filter"
+            />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/victorbotelhoa"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <img
+              src="https://api.iconify.design/mdi/linkedin.svg?color=%231267e8"
+              alt="LinkedIn"
+              loading="lazy"
+            />
+          </a>
+
+          <a
+            href="https://x.com/victorbotelhoan"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social"
+            aria-label="X"
+          >
+            <img
+              src="https://cdn.simpleicons.org/x/1267e8"
+              alt="X"
+            />
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 Victor Botelho A.
+        </span>
+
+        <span>
+          Aprendendo e criando todos os dias.
+        </span>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
